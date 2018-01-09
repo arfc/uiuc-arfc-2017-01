@@ -1,19 +1,163 @@
-\documentclass[12pt]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{graphicx}
+% This document has been modified from its original version by Kathryn Huff 
+% Acknowledgement of the original version is below.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Academic Title Page
+% LaTeX Template
+% Version 2.0 (17/7/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% WikiBooks (LaTeX - Title Creation) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+% Instructions for using this template:
+% This title page is capable of being compiled as is. This is not useful for 
+% including it in another document. To do this, you have two options: 
+%
+% 1) Copy/paste everything between \begin{document} and \end{document} 
+% starting at \begin{titlepage} and paste this into another LaTeX file where you 
+% want your title page.
+% OR
+% 2) Remove everything outside the \begin{titlepage} and \end{titlepage}, rename
+% this file and move it to the same directory as the LaTeX file you wish to add it to. 
+% Then add \input{./<new filename>.tex} to your LaTeX file where you want your
+% title page.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%    PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{mathpazo} % Palatino font
+\usepackage{graphicx} % For the logo
+
 \usepackage{amsmath}
 \usepackage{commath}
 \usepackage{url}
-\usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[english]{babel}
-\usepackage[citestyle=numeric]{biblatex}
 \usepackage{csquotes}
 \usepackage{listings}
 \usepackage{wrapfig}
 \usepackage{placeins}
-\linespread{2}
-\addbibresource{bibli.bib}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
+    
+    \center % Centre everything on the page
+
+    %------------------------------------------------
+    %    Title
+    %------------------------------------------------
+    
+    \HRule\\[0.2cm]
+    
+     \begin{minipage}{0.4\textwidth}
+        \includegraphics[width=\textwidth]{arfc-logo}
+        \end{minipage}%
+        \begin{minipage}{0.6\textwidth}
+        {\begin{flushright}\huge\bfseries Multiphysics Analysis of Molten Salt Reactor Transients\end{flushright}}
+        \end{minipage}
+
+    \vspace{0.2cm}
+    \HRule
+    \vspace{0.5cm}
+    
+    %------------------------------------------------
+    %    Author(s)
+    %------------------------------------------------
+    
+    \begin{minipage}{0.4\textwidth}
+        \begin{flushleft}
+            \large
+            \textit{Authors}\\
+            Gavin \textsc{Ridley}\\
+        \end{flushleft}
+    \end{minipage}
+    ~
+    \begin{minipage}{0.4\textwidth}
+        \begin{flushright}
+            \large
+            \textit{Faculty Mentor}\\
+            Matthew \textsc{Turk}\\
+            \textit{Postdoctoral Mentor}\\
+            Alexander \textsc{Lindsay}\\ 
+            \textit{Principal Investigator}\\
+            Kathryn D. \textsc{Huff}% Supervisor's name
+        \end{flushright}
+    \end{minipage}
+    
+    % If you don't want a supervisor, uncomment the two lines below and comment the code above
+    %{\large\textit{Author}}\\
+    %John \textsc{Smith} % Your name
+
+    %------------------------------------------------
+    %    Report Number
+    %------------------------------------------------
+    \vspace{1cm}
+    \textsc{\LARGE\bfseries UIUC-ARFC-2017-01} % Replace YYYY with the year, NN with report index
+    \vspace{0.5cm}
+    
+    %------------------------------------------------
+    %    Date
+    %------------------------------------------------
+    
+    \vspace{0.5cm} % Position the date further down the remaining page
+    {\large August 2, 2017} % Date, change the \today to a set date if you want to be precise
+    \vspace{0.5cm}
+
+%------------------------------------------------
+    %    Headings
+    %------------------------------------------------
+    
+    \textsc{\LARGE Advanced Reactors and Fuel Cycles}\\[0.25cm] % Research Group
+    
+    \textsc{\large Dept. of Nuclear, Plasma, \& Radiological Engineering}\\% Department
+    
+    \textsc{\large University of Illiois at Urbana-Champaign}\\ % University
+
+
+    
+    %------------------------------------------------
+    %    Logo
+    %------------------------------------------------
+    
+    \vspace{0.5cm}
+    \includegraphics[width=0.8\textwidth]{illinois}\\[1cm] % Include a department/university logo - this will require the graphicx package
+     
+    %----------------------------------------------------------------------------------------
+
+    %------------------------------------------------
+    %   Funding 
+    %------------------------------------------------
+    % For this section, either use \vfill to fill the space 
+    % or insert funding acknowledgement
+    \textit{This research was performed using funding received from the 
+    National Science Foundation Award Abstract \#1659702 REU Site: INCLUSION.}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+
+
+
 
 \title{Multiphysics Analysis of Molten Salt Reactor Transients}
 \author{Gavin Ridley\\
@@ -21,7 +165,6 @@
         Postdoctoral Mentor: Alexander Lindsay \\
         University of Illinois at Urbana-Champaign \\
         2017 \\}
-\begin{document}
 \maketitle
 
 \textbf{Abstract: Molten salt nuclear reactor technology has not yet been constructed for industrial scale.
@@ -34,7 +177,13 @@ open-source software can inform reproducible results suitable for preliminary li
 
 \section{Introduction}
 
-Molten salt reactor (MSR) concepts promise some of the most competitive, sustainable energy of many advanced reactors, as described in \cite{siemer_why_2015}. Sustainable, in this sense, refers to the thorium they can be fueled on, unlike many other reactors. Thorium occurs six times more abundantly in the Earth’s crust than uranium, according to \cite{usgs}. 
+Molten salt reactor (MSR) concepts promise some of the most competitive, 
+sustainable energy of many advanced reactors, as described in 
+\cite{siemer_why_2015}. Sustainable, in this sense, refers to the thorium they 
+can be fueled on, unlike many other reactors. Thorium occurs six times more 
+abundantly in the Earth’s crust than uranium, according to the United States 
+Geological Survey.
+
 In addition, these reactors are typically capable of performing fast power changes in order to compensate for possibly sporadic renewable power sources like wind and solar. It is intuitively obvious that the rise to dominance of a safe, cheap, carbon-free electricity source like MSRs can mitigate the threat of climate change. Molten salt reactors operate at low pressure as opposed to classical nuclear reactors, thus reducing requirements for containment structures and therefore significantly lower construction cost. Moreover, growing electricity needs in developing countries can be met with affordable, safe power. There are currently six reactor concepts that have been chosen by the Generation IV International Forum (GIF). One of these six modern designs is the molten salt reactor (MSR). The MSR class encompasses a huge variety of designs, many of which are detailed in \cite{dolan}. Many are fueled by salt, meaning that fissile atoms like uranium-235, uranium-233, or plutonium-239. An archetypal molten salt reactor can be seen in Figure 1. Several companies \cite{6comp_2015} are considering building these, so code must be developed to evaluate the designs’ performance and safety.
 
 \begin{figure}
@@ -256,8 +405,7 @@ In loss of flow transients, the influence of subcooling on due to slowing flow m
 
 \FloatBarrier
 
-\newpage
-\printbibliography
-
+\bibliographystyle{plain}
+\bibliography{bibli}
 
 \end{document}
